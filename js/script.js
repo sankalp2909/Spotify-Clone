@@ -58,7 +58,7 @@ async function main() {
                             </div> </li>`;
     }
 
-    currentSong.src = `/${currFolder}/` + songs[0];
+    currentSong.src =  `${baseUrl}/${currFolder}/` + songs[0];
     currentSong.addEventListener("loadedmetadata", () => { // I was directly changing HTML of songinfo and time, but still I was getting time as 00:00/00:00 instead of actual time duration, I did ChatGpt and got to know that this was happening because currentSong.duration is NaN (or undefined) right after setting src, therefore browser needs sometime to read audio files and loadedmetadata ensures that the browser has read the audio file and knows things like .duration!
         document.querySelector(".songinfo").innerHTML = decodeURI(currentSong.src.split(`/${currFolder}/`)[1]);//decode URI will decode URL and remove %20 and all, however it wont remove https part so we'll have to remove it using split!
         document.querySelector(".songtime").innerHTML = `${secondsToMinutesSeconds(currentSong.currentTime)}/${secondsToMinutesSeconds(currentSong.duration)}`;
