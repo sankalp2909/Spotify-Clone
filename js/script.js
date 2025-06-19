@@ -28,7 +28,7 @@ function secondsToMinutesSeconds(seconds) { //func. given by ChatGpt!
 
 
 function playMusic(track) {
-    currentSong.src = `/${currFolder}/` + encodeURIComponent(track);
+    currentSong.src = `/${currFolder}/` + track;
     currentSong.play();
     play.src = "img/pause.svg"
     document.querySelector(".songinfo").innerHTML = track
