@@ -29,7 +29,7 @@ function secondsToMinutesSeconds(seconds) { //func. given by ChatGpt!
 
 
 function playMusic(track) {
-    
+    console.log("Playing from:", `${baseUrl}/${currFolder}/` + track);
     currentSong.src = `${baseUrl}/${currFolder}/` + track;
     document.querySelector(".songinfo").innerHTML = track
     document.querySelector(".songtime").innerHTML = "00:00/00:00"
