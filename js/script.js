@@ -31,7 +31,7 @@ function playMusic(track) {
     currentSong.src = `/${currFolder}/` + track;
     currentSong.play();
     play.src = "img/pause.svg"
-    document.querySelector(".songinfo").innerHTML = track
+    document.querySelector(".songinfo").innerHTML = decodeURIComponent(track)
     document.querySelector(".songtime").innerHTML = "00:00/00:00"
 }
 
