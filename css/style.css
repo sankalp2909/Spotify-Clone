@@ -1,1 +1,430 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
 
+:root{
+    --a:0;
+}
+
+body {
+    background-color: black;
+    color: white;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    font-family: "Roboto", sans-serif;
+}
+
+.left {
+    width: 25vw;
+    padding: 7px;
+    position: relative;
+}
+
+.close {
+    position: absolute;
+    right: 18px;
+    top: 18px;
+    display: none;
+}
+
+.right {
+    width: 75vw;
+    margin: 13px 0px;
+    /* giving margin from top and bottom only */
+    position: relative;
+    padding-bottom: 60px;
+    /* This reserves space inside the .right container for .playbar */
+    height: 90vh;
+}
+
+.home {
+    padding: 10px;
+}
+
+.home ul li {
+    list-style-type: none;
+    width: 14px;
+    display: flex;
+    /* Due to this home icon and word HOME will come in same line! */
+    gap: 13px;
+    padding-top: 14px;
+    font-weight: bold;
+}
+
+.library {
+    position: relative;
+    min-height: 80vh;
+}
+
+.hamburger {
+    display: none;
+}
+
+.heading {
+    display: flex;
+    gap: 13px;
+    width: 100%;
+    padding-top: 14px;
+    font-weight: bold;
+    font-size: xx-small;
+    align-items: center;
+}
+
+.heading img {
+    width: 20px;
+    padding: 3px;
+}
+
+.songlist {
+    height: 500px;
+    overflow: auto;
+}
+
+.songlist ul {
+    margin: 35px 15px;
+    list-style-type: decimal;
+}
+
+.songlist ul li {
+    display: flex;
+    /* so that music icon and song name comes in same line */
+    gap: 10px;
+    cursor: pointer;
+    padding: 12px;
+    border: 1px solid white;
+    margin: 12px 0px;
+    border-radius: 5px;
+    /* position: relative; */
+    justify-content: space-between;
+}
+
+.playnow {
+    /* position: absolute; */
+    display: flex;
+    align-items: center;
+    right: 10px;
+}
+
+.playnow span {
+    height: 21px;
+    width: 76px;
+    font-size: 13px;
+}
+
+.songlist .info {
+    font-size: 13px;
+    width: 300px;
+}
+
+.info div {
+    word-break: break-all;
+    /* It allows words to break at any character to prevent overflow — even in the middle of a word. */
+}
+
+.footer {
+    display: flex;
+    gap: 10px;
+    font-size: 10px;
+    position: absolute;
+    bottom: 0px;
+    padding: 10px 0px;
+}
+
+.footer a {
+    color: gray;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    background-color: rgb(34, 34, 34);
+    height: 72px;
+    /* giving this to fix its height so that if we hover on signup or login button their growing size dont change height of header due to their margins and paddings! */
+
+}
+
+.nav {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.header>* {
+    /* it selects direct children under header class! */
+    padding: 20px;
+}
+
+.spotifyPlaylists {
+    padding: 15px;
+}
+
+.cardContainer {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin: 20px;
+    max-height: 60vh;
+    overflow-y: auto;
+}
+
+.spotifyPlaylists .card {
+    width: 200px;
+    background-color: #252525;
+    padding: 10px;
+    position: relative;
+}
+
+.card>* {
+    padding-top: 10px;
+}
+
+.card img {
+    object-fit: contain;
+    width: 100%;
+}
+
+.card:hover{
+    background-color: rgb(44, 44, 44);
+    cursor: pointer;
+    --a:1;
+}
+
+.play {
+    background-color: #1fdf64;
+    border-radius: 50%;
+    padding: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 28px;
+    height: 28px;
+    position: absolute;
+    bottom: 125px;
+    right: 17px;
+    opacity: var(--a);
+    transition: all 0.1s ease-out;
+}
+
+
+
+.play svg {
+    height: 20px;
+    width: 20px;
+}
+
+.buttons>* {
+    margin: 0px 12px;
+}
+
+.signupbtn {
+    background-color: rgb(34, 34, 34);
+    color: rgb(139, 137, 137);
+    font-weight: bold;
+    border: none;
+    outline: none;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.signupbtn:hover {
+    color: white;
+    font-size: 16px;
+}
+
+.loginbtn {
+    background-color: white;
+    border-radius: 20px;
+    padding: 10px;
+    width: 75px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.loginbtn:hover {
+    font-weight: bold;
+    font-size: 17px;
+    /* giving padding only from left and right! */
+}
+
+.playbar {
+    position: absolute;
+    bottom: 20px;
+    background-color: #dad5d5;
+    width: 95%;
+    /* NOTE-- this means that it will take 95% width of its poisitioned parent i.e. right class, not 95% of viewport! */
+    padding: 10px;
+    border-radius: 15px;
+    filter: invert(1);
+    /* without this our playbar will have black buttons and white bar, so with this playbar gets white buttons with black bar! */
+    min-height: 40px;
+}
+
+.songbuttons {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+}
+
+.songbuttons img {
+    cursor: pointer;
+}
+
+.seekbar {
+    background-color: black;
+    height: 3px;
+    width: 98%;
+    position: absolute;
+    bottom: 8px;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.circle {
+    border-radius: 13px;
+    height: 13px;
+    width: 13px;
+    background-color: black;
+    position: relative;
+    bottom: 6px;
+    left: 0%;
+    transition: left 0.3s;
+}
+
+.songinfo {
+    color: black;
+    padding: 0px 15px;
+}
+
+.songtime {
+    color: black;
+    padding: 0px 15px;
+}
+
+.timevol{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.volume{
+    cursor: pointer;
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    /* flex-direction: column; */
+}
+
+.slider {
+  width: 100px;  /* length of the vol track */
+  height: 7px;   /* thickness of the vol track */
+}
+
+.aboveBar {
+    display: flex;
+    justify-content: space-between;
+}
+
+@media (max-width: 1400px) {
+    .left {
+        position: absolute;
+        left: -120%;
+        transition: all 0.6s ease;
+        z-index: 1;
+        width: 330px;
+        background-color: rgba(0, 0, 0, 0.9);
+        max-height: 135vh;
+    }
+
+    .footer {
+        font-size: 8px;
+    }
+
+    .songlist {
+        height: 700px;
+
+    }
+
+    .spotifyPlaylists h2 {
+        margin: 15px;
+    }
+
+    .songlist .info {
+        font-size: 11px;
+    }
+
+    .songlist .playnow span {
+        font-size: 11px;
+    }
+
+    .cardContainer {
+        max-height: 70vh;
+        margin: 0px;
+    }
+
+
+    .left .close {
+        display: block;
+        z-index: 10;
+    }
+
+    .right {
+        margin: 0;
+        width: 100vw;
+        padding-bottom: 100px;
+    }
+
+    .playbar {
+        width: calc(100vw - 70px);
+        font-size: 10px;
+    }
+
+    .seekbar {
+        width: calc(100vw - 65px);
+    }
+
+    .hamburger {
+        display: block;
+    }
+
+    .card {
+        width: 100vw;
+        margin: 0px;
+    }
+
+}
+
+@media (max-width: 500px) {
+    .aboveBar {
+        flex-direction: column;
+        gap: 7px;
+        align-items: center;
+        margin-bottom: 10px;
+        justify-content: center;
+    }
+
+    .spotifyPlaylists .card {
+        width: 83vw;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .cardContainer {
+        max-height: 62vh;
+        margin: 0px;
+        justify-content: center;
+    }
+
+    .play {
+        width: 42px;
+        height: 42px;
+        position: absolute;
+        bottom: 105px;
+        right: 30px;
+    }
+
+    .footer {
+        font-size: 8px;
+    }
+}
