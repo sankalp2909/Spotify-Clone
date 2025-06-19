@@ -3,6 +3,7 @@ console.log("Hello JS!")
 let currentSong = new Audio();
 let songs;
 let currFolder;
+let baseUrl = "https://sankalp2909.github.io/Spotify-Clone";
 
 async function getSongs(folder) {
     currFolder = folder;
@@ -28,11 +29,11 @@ function secondsToMinutesSeconds(seconds) { //func. given by ChatGpt!
 
 
 function playMusic(track) {
-    currentSong.src = `/${currFolder}/` + track;
-
+    
+    currentSong.src = `${baseUrl}/${currFolder}/` + track;
     document.querySelector(".songinfo").innerHTML = track
     document.querySelector(".songtime").innerHTML = "00:00/00:00"
-        currentSong.play();
+    currentSong.play();
     play.src = "img/pause.svg"
 }
 
@@ -116,10 +117,10 @@ async function main() {
         let len = songs.length
         let index = songs.indexOf(currentSong.src.split(`/${currFolder}/`)[1])
         if (index == 0) {
-            currentSong.src = `/${currFolder}/` + songs[len - 1]
+            currentSong.src = `${baseUrl}/${currFolder}/` + songs[len - 1]
         }
         else {
-            currentSong.src = `/${currFolder}/` + songs[index - 1]
+            currentSong.src = `${baseUrl}/${currFolder}/` + songs[index - 1]
         }
         currentSong.play()
     })
@@ -127,7 +128,7 @@ async function main() {
         console.log("clicked next")
         let len = songs.length
         let index = songs.indexOf(currentSong.src.split(`/${currFolder}/`)[1])
-        currentSong.src = `/${currFolder}/` + songs[(index + 1) % len]
+        currentSong.src = `${baseUrl}/${currFolder}/` + songs[(index + 1) % len]
         currentSong.play()
     })
 
